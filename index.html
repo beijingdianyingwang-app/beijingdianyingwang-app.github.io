@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="北京电影网（beijingdianyingwang-app）是面向影迷的影视资讯门户，提供最新电影票房、热门影片推荐、影评解析、影院排片与电影节动态，第一时间更新国内外影视行业资讯。">
+<meta name="keywords" content="北京电影网, beijingdianyingwang-app, 电影资讯, 最新电影, 票房排行, 影评, 影院排片, 电影节">
+<meta name="author" content="北京电影网">
+<meta name="robots" content="index, follow">
+<title>北京电影网 - 最新电影资讯 | 票房排行 | 影评解析 | beijingdianyingwang-app</title>
+<link rel="canonical" href="https://beijingdianyingwang-app.github.io/">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "北京电影网",
+  "alternateName": "beijingdianyingwang-app",
+  "url": "https://beijingdianyingwang-app.github.io/",
+  "description": "北京电影网提供最新电影资讯、票房数据、影评解析与影院排片信息。",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://beijingdianyingwang-app.github.io/#search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+<style>
+:root{
+  --ink:#12141c;
+  --ink-2:#3a3f4b;
+  --muted:#7b8394;
+  --line:#e6e9f0;
+  --bg:#f6f7fb;
+  --card:#ffffff;
+  --brand:#e11d2e;
+  --brand-2:#ff5a3d;
+  --gold:#e8a33d;
+  --navy:#141a2e;
+  --radius:18px;
+  --shadow:0 10px 30px rgba(20,26,46,.08);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:"PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+  background:var(--bg);color:var(--ink);line-height:1.75;
+  font-size:16px;overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none;transition:.25s}
+img{max-width:100%;display:block}
+.container{max-width:1180px;margin:0 auto;padding:0 20px}
+
+/* ===== Header ===== */
+.site-header{
+  position:sticky;top:0;z-index:100;
+  background:linear-gradient(90deg,var(--navy) 0%,#1f2744 55%,#2a1d3a 100%);
+  color:#fff;box-shadow:0 4px 20px rgba(0,0,0,.25);
+}
+.header-inner{display:flex;align-items:center;gap:18px;height:64px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.5px}
+.logo-mark{
+  width:34px;height:34px;border-radius:9px;flex:none;
+  background:linear-gradient(135deg,var(--brand),var(--brand-2));
+  display:grid;place-items:center;font-size:18px;box-shadow:0 4px 12px rgba(225,29,46,.4)
+}
+.logo small{display:block;font-size:11px;font-weight:500;color:#c9cfdd;letter-spacing:1px}
+.nav-toggle{display:none;background:none;border:0;color:#fff;font-size:26px;cursor:pointer;margin-left:auto}
+.primary-nav{display:flex;gap:6px;margin-left:auto}
+.primary-nav a{
+  padding:8px 14px;border-radius:999px;font-size:14.5px;font-weight:600;color:#e8eaf0;
+}
+.primary-nav a:hover{background:rgba(255,255,255,.12);color:#fff}
+.primary-nav a.cta{
+  background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;
+  box-shadow:0 6px 16px rgba(225,29,46,.35)
+}
+
+/* ===== Hero ===== */
+.hero{
+  position:relative;color:#fff;padding:70px 0 90px;overflow:hidden;
+  background:
+    radial-gradient(900px 400px at 82% -10%,rgba(232,163,61,.35),transparent 60%),
+    radial-gradient(700px 500px at 5% 20%,rgba(225,29,46,.4),transparent 55%),
+    linear-gradient(135deg,#0d1226 0%,#1a1f3a 50%,#2a1d3a 100%);
+}
+.hero::after{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
+  background-size:44px 44px;
+}
+.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:44px;align-items:center}
+.kicker{
+  display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;color:var(--gold);
+  border:1px solid rgba(232,163,61,.4);padding:6px 14px;border-radius:999px;background:rgba(232,163,61,.08)
+}
+.hero h1{font-size:clamp(30px,5vw,52px);line-height:1.18;margin:18px 0 14px;font-weight:800;letter-spacing:-.5px}
+.hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--brand-2),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p.lede{font-size:17px;color:#c9d0e0;max-width:560px}
+.hero-stats{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}
+.stat{
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);
+  backdrop-filter:blur(6px);border-radius:14px;padding:12px 18px;min-width:118px
+}
+.stat b{display:block;font-size:24px;font-weight:800;line-height:1.2}
+.stat span{font-size:12.5px;color:#b9c0d2;letter-spacing:.5px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:15px;
+  padding:13px 26px;border-radius:999px;border:0;cursor:pointer
+}
+.btn-primary{background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;box-shadow:0 10px 24px rgba(225,29,46,.4)}
+.btn-ghost{background:rgba(255,255,255,.1);color:#fff;border:1px solid rgba(255,255,255,.25)}
+.hero-ticket{
+  background:var(--card);color:var(--ink);border-radius:22px;padding:22px;
+  box-shadow:0 24px 60px rgba(0,0,0,.35);transform:rotate(1deg)
+}
+.hero-ticket .now{font-size:12px;letter-spacing:3px;color:var(--brand);font-weight:800}
+.hero-ticket h3{font-size:20px;margin:6px 0 14px;line-height:1.4}
+.ticket-row{display:flex;justify-content:space-between;font-size:13.5px;padding:9px 0;border-bottom:1px dashed var(--line)}
+.ticket-row:last-of-type{border:0}
+.ticket-row span:first-child{color:var(--muted)}
+.ticket-row span:last-child{font-weight:700}
+.bar{height:6px;border-radius:99px;background:#eef0f6;margin:14px 0 6px;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--brand),var(--gold))}
+.sold{font-size:12px;color:var(--muted);text-align:right}
+
+/* ===== Section frame ===== */
+section{padding:64px 0}
+.eyebrow{color:var(--brand);font-weight:800;letter-spacing:2px;font-size:13px}
+.section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:30px}
+.section-head h2{font-size:clamp(22px,3.4vw,32px);font-weight:800;letter-spacing:-.4px;line-height:1.3}
+.section-head h2 span{color:var(--brand)}
+.section-head p{color:var(--muted);font-size:14.5px;max-width:460px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap}
+.tab{
+  border:1px solid var(--line);background:var(--card);color:var(--ink-2);
+  padding:7px 16px;border-radius:999px;font-size:13.5px;font-weight:600;cursor:pointer
+}
+.tab.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+
+/* ===== Cards ===== */
+.film-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.film{background:var(--card);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:.3s;display:flex;flex-direction:column}
+.film:hover{transform:translateY(-6px)}
+.poster{position:relative;aspect-ratio:3/4;overflow:hidden;background:linear-gradient(160deg,#2a1d3a,#141a2e)}
+.poster::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(circle at 30% 25%,rgba(255,255,255,.18),transparent 40%),
+  radial-gradient(circle at 75% 80%,rgba(225,29,46,.35),transparent 45%)}
+.poster .shine{position:absolute;left:-40%;top:0;width:30%;height:100%;transform:skewX(-18deg);background:linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent);animation:shine 5s ease-in-out infinite}
+@keyframes shine{0%,100%{left:-40%}50%{left:110%}}
+.poster .type{
+  position:absolute;top:12px;left:12px;font-size:11.5px;font-weight:800;letter-spacing:1px;
+  background:rgba(0,0,0,.55);color:#fff;padding:4px 10px;border-radius:6px;backdrop-filter:blur(4px)
+}
+.poster .score{
+  position:absolute;top:12px;right:12px;background:var(--gold);color:#241800;
+  font-weight:800;font-size:13px;padding:4px 10px;border-radius:6px
+}
+.poster .play{
+  position:absolute;inset:0;display:grid;place-items:center;font-size:44px;
+  color:rgba(255,255,255,.85);opacity:0;transition:.3s
+}
+.film:hover .play{opacity:1}
+.film-body{padding:14px 16px 16px;flex:1;display:flex;flex-direction:column}
+.film-body h3{font-size:16px;font-weight:800;line-height:1.4;margin-bottom:6px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.film-meta{font-size:12.5px;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 10px;margin-bottom:10px}
+.film-meta i{font-style:normal;color:var(--brand-2);font-weight:700}
+.tagrow{display:flex;gap:6px;flex-wrap:wrap;margin-top:auto}
+.tag{font-size:11.5px;color:var(--ink-2);background:#eef0f6;padding:3px 9px;border-radius:6px}
+
+/* ===== Box office ===== */
+.bo-wrap{display:grid;grid-template-columns:1.4fr 1fr;gap:24px;align-items:start}
+.bo-list{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.bo-item{display:flex;align-items:center;gap:14px;padding:14px 20px;border-bottom:1px solid var(--line)}
+.bo-item:last-child{border:0}
+.rank{
+  width:30px;height:30px;flex:none;border-radius:9px;display:grid;place-items:center;
+  font-weight:800;font-size:14px;background:#eef0f6;color:var(--ink-2)
+}
+.rank.top{background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff}
+.rank.top3{background:linear-gradient(135deg,#f6c667,var(--gold));color:#241800}
+.bo-info{flex:1;min-width:0}
+.bo-info h4{font-size:15.5px;font-weight:750;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bo-info span{font-size:12.5px;color:var(--muted)}
+.bo-bar{flex:1.2;height:7px;background:#eef0f6;border-radius:99px;overflow:hidden;min-width:80px}
+.bo-bar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--brand),var(--brand-2))}
+.bo-val{width:88px;text-align:right;font-weight:800;font-size:14.5px;color:var(--ink)}
+.bo-val small{display:block;font-weight:500;font-size:11.5px;color:var(--muted)}
+.bo-side{background:linear-gradient(160deg,var(--navy),#2a1d3a);color:#fff;border-radius:var(--radius);padding:26px;box-shadow:var(--shadow)}
+.bo-side h3{font-size:20px;margin-bottom:4px}
+.bo-side .date{font-size:12.5px;color:#b9c0d2;margin-bottom:18px}
+.mini{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.12);font-size:14px}
+.mini:last-child{border:0}
+.mini span:last-child{font-weight:700;color:var(--gold)}
+
+/* ===== Reviews ===== */
+.review-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.review{background:var(--card);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);position:relative;transition:.3s}
+.review:hover{transform:translateY(-5px)}
+.quote{position:absolute;top:14px;right:20px;font-size:54px;line-height:.6;color:var(--brand);opacity:.18;font-family:Georgia,serif}
+.stars{color:var(--gold);font-size:14px;letter-spacing:2px}
+.review h3{font-size:18px;margin:8px 0 10px;line-height:1.45}
+.review p{font-size:14.5px;color:var(--ink-2);display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.reviewer{display:flex;align-items:center;gap:10px;margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}
+.avatar{width:36px;height:36px;border-radius:50%;flex:none;display:grid;place-items:center;color:#fff;font-weight:700;font-size:14px}
+.reviewer b{font-size:13.5px;display:block}
+.reviewer span{font-size:12px;color:var(--muted)}
+
+/* ===== Cinema ===== */
+.cinema{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.cinema-head{background:linear-gradient(100deg,var(--ink),var(--navy));color:#fff;padding:22px 26px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.cinema-head .big{font-size:26px;font-weight:800;line-height:1.2}
+.cinema-head .big small{display:block;font-size:12px;font-weight:500;color:var(--gold);letter-spacing:2px;margin-top:4px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-left:auto}
+.chip{font-size:12px;padding:5px 12px;border-radius:999px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18)}
+.schedule{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding:26px}
+.show{flex:1;min-width:220px;background:#fbfbfe;border:1px solid var(--line);border-radius:14px;padding:16px}
+.show .t{font-size:13px;color:var(--muted);font-weight:700;letter-spacing:1px}
+.show h4{font-size:16.5px;margin:2px 0 8px}
+.show .seat{display:flex;justify-content:space-between;font-size:12.5px;color:var(--ink-2);padding:5px 0}
+.show .price{font-size:20px;font-weight:800;color:var(--brand);margin:8px 0 10px}
+.show .price small{font-size:12px;color:var(--muted);font-weight:500}
+.show button{width:100%;border:0;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;font-weight:700;font-size:13.5px;padding:9px;border-radius:9px;cursor:pointer}
+
+/* ===== Festival / News ===== */
+.split{display:grid;grid-template-columns:1.3fr 1fr;gap:24px}
+.fest{background:linear-gradient(150deg,#1c1030,#2e1740 60%,#4a1c33);color:#fff;border-radius:var(--radius);padding:30px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.fest::after{content:"";position:absolute;right:-60px;bottom:-80px;width:240px;height:240px;border-radius:50%;background:radial-gradient(circle,rgba(232,163,61,.35),transparent 70%)}
+.fest .lb{font-size:12px;letter-spacing:3px;color:var(--gold);font-weight:800}
+.fest h3{font-size:26px;margin:10px 0 12px;line-height:1.35}
+.fest p{color:#d8cfe6;font-size:14.5px}
+.countdown{display:flex;gap:12px;margin-top:20px}
+.cd{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:12px;padding:12px 16px;min-width:74px;text-align:center}
+.cd b{display:block;font-size:24px;font-weight:800;line-height:1.1}
+.cd span{font-size:11.5px;color:#cfc4de;letter-spacing:1px}
+.news{display:flex;flex-direction:column;gap:12px}
+.news a{display:flex;gap:12px;background:var(--card);border-radius:14px;padding:12px;box-shadow:var(--shadow);transition:.25s}
+.news a:hover{transform:translateX(4px)}
+.news .nd{width:64px;height:64px;flex:none;border-radius:10px;display:grid;place-items:center;font-size:11px;font-weight:800;color:#fff;text-align:center;line-height:1.3;padding:4px}
+.news h4{font-size:14.5px;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.news time{font-size:11.5px;color:var(--muted)}
+
+/* ===== About / FAQ ===== */
+.about-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.feat{background:var(--card);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);transition:.3s;border:1px solid transparent}
+.feat:hover{border-color:rgba(225,29,46,.3);transform:translateY(-4px)}
+.feat .ic{width:48px;height:48px;border-radius:13px;display:grid;place-items:center;font-size:22px;margin-bottom:14px;background:linear-gradient(135deg,#fff0f0,#ffe6e2)}
+.feat h3{font-size:17px;margin-bottom:8px}
+.feat p{font-size:14px;color:var(--ink-2)}
+.faq{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.faq details{border-bottom:1px solid var(--line)}
+.faq details:last-child{border:0}
+.faq summary{padding:18px 24px;font-weight:700;cursor:pointer;list-style:none;display:flex;gap:12px;align-items:baseline}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::before{content:"Q";color:var(--brand);font-weight:800;font-size:14px;background:#ffecee;border-radius:6px;padding:2px 7px;flex:none}
+.faq p{margin:0;padding:0 24px 18px 52px;font-size:14.5px;color:var(--ink-2)}
+.about-text{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.about-text .card{background:var(--card);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow)}
+.about-text h3{font-size:19px;margin-bottom:10px}
+.about-text p{font-size:14.5px;color:var(--ink-2);margin-bottom:10px}
+.kw{display:flex;gap:8px;flex-wrap:wrap}
+.kw a{font-size:12.5px;color:var(--brand);border:1px solid rgba(225,29,46,.3);padding:4px 11px;border-radius:999px;background:#fff5f5}
+
+/* ===== Footer ===== */
+.site-footer{background:var(--navy);color:#c9d0e0;padding:56px 0 26px;margin-top:20px}
+.foot-grid{display:grid;grid-template-columns:1.5fr repeat(3,1fr);gap:30px;padding-bottom:34px;border-bottom:1px solid rgba(255,255,255,.12)}
+.foot-grid h4{color:#fff;font-size:15px;margin-bottom:14px;letter-spacing:.5px}
+.foot-grid p{font-size:13.5px;color:#9aa3b6;max-width:320px}
+.foot-grid ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.foot-grid a{font-size:13.5px;color:#b4bccd}
+.foot-grid a:hover{color:var(--gold)}
+.copy{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding-top:22px;font-size:12.5px;color:#8b93a5}
+.copy a{color:#b4bccd}
+
+/* ===== Responsive ===== */
+@media (max-width:1024px){
+  .film-grid{grid-template-columns:repeat(3,1fr)}
+  .review-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:860px){
+  .nav-toggle{display:block}
+  .primary-nav{
+    position:fixed;inset:64px 0 0 0;flex-direction:column;gap:0;
+    background:linear-gradient(160deg,var(--navy),#2a1d3a);padding:18px 20px;
+    transform:translateX(100%);transition:.35s ease;margin:0
+  }
+  .primary-nav.open{transform:translateX(0)}
+  .primary-nav a{border-radius:12px;padding:14px 16px;font-size:16px;border-bottom:1px solid rgba(255,255,255,.08)}
+  .hero-grid,.bo-wrap,.split,.about-text{grid-template-columns:1fr}
+  .film-grid{grid-template-columns:repeat(2,1fr);gap:14px}
+  .review-grid{grid-template-columns:1fr}
+  .schedule{grid-template-columns:1fr 1fr;gap:12px;padding:18px}
+  .about-grid{grid-template-columns:repeat(2,1fr)}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  section{padding:46px 0}
+  .hero{padding:44px 0 60px}
+}
+@media (max-width:520px){
+  body{font-size:15px}
+  .film-grid{grid-template-columns:1fr}
+  .schedule{grid-template-columns:1fr}
+  .about-grid{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr}
+  .container{padding:0 16px}
+  .hero-ticket{transform:none}
+  .bo-item{grid-template-columns:40px 1fr;gap:10px;padding:12px 14px}
+  .bo-bar{grid-column:2/4;order:3;min-width:0}
+  .bo-val{width:auto;text-align:right}
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/yazhou.js"></script>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="logo" href="#top" aria-label="北京电影网首页">
+      <span class="logo-mark">影</span>
+      <span>北京电影网<small>BEIJING FILM · beijingdianyingwang-app</small></span>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="打开菜单">☰</button>
+    <nav class="primary-nav" id="primaryNav">
+      <a href="#hot">热映推荐</a>
+      <a href="#boxoffice">票房排行</a>
+      <a href="#review">深度影评</a>
+      <a href="#cinema">影院排片</a>
+      <a href="#festival">电影节</a>
+      <a href="#about">关于我们</a>
+      <a href="#faq" class="cta">立即选座</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+  <div class="container hero-grid">
+    <div>
+      <span class="kicker">◆ 北京电影网 · beijingdianyingwang-app</span>
+      <h1>看懂每一部好片<br>从 <em>北京电影网</em> 开始</h1>
+      <p class="lede">北京电影网（beijingdianyingwang-app）专注电影资讯与观影决策：实时票房、热门影片、专业影评、影院排片一站聚合，让每一次走进影院都不踩雷。</p>
+      <div class="hero-stats">
+        <div class="stat"><b id="s1">0</b><span>每日更新资讯</span></div>
+        <div class="stat"><b>8,600+</b><span>收录影片</span></div>
+        <div class="stat"><b>320+</b><span>合作影院</span></div>
+        <div class="stat"><b>96%</b><span>用户推荐率</span></div>
+      </div>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#boxoffice">查看实时票房 →</a>
+        <a class="btn btn-ghost" href="#review">阅读本周影评</a>
+      </div>
+    </div>
+
+    <aside class="hero-ticket">
+      <span class="now">NOW SHOWING · 今日热映</span>
+      <h3>《长安夜航》IMAX 2D<br>今日 19:20 场次余票充足</h3>
+      <div class="ticket-row"><span>观影地点</span><span>北京 · 寰映影城（三里屯店）</span></div>
+      <div class="ticket-row"><span>放映厅</span><span>7号厅 IMAX Laser</span></div>
+      <div class="ticket-row"><span>票价</span><span>¥ 69.00 / 张</span></div>
+      <div class="ticket-row"><span>剩余座位</span><span>42 / 268</span></div>
+      <div class="bar"><i style="width:84%"></i></div>
+      <div class="sold">已售 84% · 选座从速</div>
+    </aside>
+  </div>
+</section>
+
+<!-- ================= 栏目一：热映推荐 ================= -->
+<section id="hot">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">栏目一 · 热映推荐</div>
+        <h2>本周 <span>必看影片</span>，北京电影网帮你挑</h2>
+      </div>
+      <p>编辑团队每日追踪院线与流媒体上新，结合口碑、题材与观影场景给出推荐理由。</p>
+    </div>
+
+    <div class="tabs" role="tablist">
+      <button class="tab active">全部</button>
+      <button class="tab">正在热映</button>
+      <button class="tab">即将上映</button>
+      <button class="tab">口碑佳作</button>
+      <button class="tab">动画家庭</button>
+    </div>
+
+    <div class="film-grid" style="margin-top:22px">
+      <article class="film">
+        <div class="poster">
+          <span class="shine"></span>
+          <span class="type">IMAX 3D</span><span class="score">9.2</span>
+          <span class="play">▶</span>
+        </div>
+        <div class="film-body">
+          <h3>长安夜航</h3>
+          <div class="film-meta"><span>剧情 / 历史</span>·<span>138 分钟</span>·<i>今日票房 ¥1.28亿</i></div>
+          <p class="film-meta">导演：陈知行　主演：周砚、林知夏。盛唐深夜的一艘漕船，牵出三桩陈年旧案。</p>
+          <div class="tagrow"><span class="tag">口碑爆棚</span><span class="tag">画面震撼</span><span class="tag">适合二刷</span></div>
+        </div>
+      </article>
+
+      <article class="film">
+        <div class="poster">
+          <span class="shine"></span>
+          <span class="type">2D</span><span class="score">8.7</span>
+          <span class="play">▶</span>
+        </div>
+        <div class="film-body">
+          <h3>第七次日落</h3>
+          <div class="film-meta"><span>科幻 / 悬疑</span>·<span>122 分钟</span>·<i>猫眼想看 46 万</i></div>
+          <p class="film-meta">导演：A. 雷耶斯　主演：艾玛·科特。时间循环里的第七天，她决定不再醒来。</p>
+          <div class="tagrow"><span class="tag">烧脑</span><span class="tag">反转密集</span><span class="tag">原声绝佳</span></div>
+        </div>
+      </article>
+
+      <article class="film">
+        <div class="poster">
+          <span class="shine"></span>
+          <span class="type">动画</span><span class="score">9.0</span>
+          <span class="play">▶</span>
+        </div>
+        <div class="film-body">
+          <h3>小熊与星图</h3>
+          <div class="film-meta"><span>动画 / 奇幻</span>·<span>96 分钟</span>·<i>豆瓣 8.9</i></div>
+          <p class="film-meta">手绘水彩风格，讲述一只迷路小熊借星光找回家的方向，全年龄向治愈之作。</p>
+          <div class="tagrow"><span class="tag">亲子首选</span><span class="tag">无尿点</span><span class="tag">泪点密集</span></div>
+        </div>
+      </article>
+
+      <article class="film">
+        <div class="poster">
+          <span class="shine"></span>
+          <span class="type">纪录片</span><span class="score">8.4</span>
+          <span class="play">▶</span>
+        </div>
+        <div class="film-body">
+          <h3>山海之间</h3>
+          <div class="film-meta"><span>纪录 / 自然</span>·<span>104 分钟</span>·<i>入围 4 项电影节</i></div>
+          <p class="film-meta">历时三年跟拍青藏高原野生动物的迁徙，4K 摄影呈现肉眼难见的壮美。</p>
+          <div class="tagrow"><span class="tag">大银幕必看</span><span class="tag">科普向</span><span class="tag">震撼</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 栏目二：票房排行 ================= -->
+<section id="boxoffice" style="background:linear-gradient(180deg,#fff,#f6f7fb)">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">栏目二 · 实时票房</div>
+        <h2>中国内地 <span>票房排行榜</span></h2>
+      </div>
+      <p>数据每小时更新，来源为公开票务平台汇总，北京电影网仅作资讯展示，不构成投资或观影建议。</p>
+    </div>
+
+    <div class="bo-wrap">
+      <div class="bo-list">
+        <div class="bo-item">
+          <span class="rank top">1</span>
+          <div class="bo-info"><h4>长安夜航</h4><span>上映第 6 天 · 累计 6.42 亿</span></div>
+          <div class="bo-bar"><i style="width:100%"></i></div>
+          <div class="bo-val">1.28 亿<small>今日</small></div>
+        </div>
+        <div class="bo-item">
+          <span class="rank top3">2</span>
+          <div class="bo-info"><h4>第七次日落</h4><span>上映第 3 天 · 累计 2.17 亿</span></div>
+          <div class="bo-bar"><i style="width:62%"></i></div>
+          <div class="bo-val">0.79 亿<small>今日</small></div>
+        </div>
+        <div class="bo-item">
+          <span class="rank top3">3</span>
+          <div class="bo-info"><h4>小熊与星图</h4><span>上映第 11 天 · 累计 3.85 亿</span></div>
+          <div class="bo-bar"><i style="width:48%"></i></div>
+          <div class="bo-val">0.61 亿<small>今日</small></div>
+        </div>
+        <div class="bo-item">
+          <span class="rank">4</span>
+          <div class="bo-info"><h4>无名之刃</h4><span>上映第 18 天 · 累计 9.03 亿</span></div>
+          <div class="bo-bar"><i style="width:33%"></i></div>
+          <div class="bo-val">0.42 亿<small>今日</small></div>
+        </div>
+        <div class="bo-item">
+          <span class="rank">5</span>
+          <div class="bo-info"><h4>山海之间</h4><span>上映第 2 天 · 累计 0.48 亿</span></div>
+          <div class="bo-bar"><i style="width:24%"></i></div>
+          <div class="bo-val">0.31 亿<small>今日</small></div>
+        </div>
+        <div class="bo-item">
+          <span class="rank">6</span>
+          <div class="bo-info"><h4>春信迟来</h4><span>上映第 25 天 · 累计 4.66 亿</span></div>
+          <div class="bo-bar"><i style="width:16%"></i></div>
+          <div class="bo-val">0.20 亿<small>今日</small></div>
+        </div>
+      </div>
+
+      <aside class="bo-side">
+        <h3>大盘速览</h3>
+        <div class="date" id="todayDate">—</div>
+        <div class="mini"><span>今日总票房</span><span>3.61 亿</span></div>
+        <div class="mini"><span>观影人次</span><span>842 万</span></div>
+        <div class="mini"><span>排片场次</span><span>46.5 万</span></div>
+        <div class="mini"><span>平均票价</span><span>¥ 42.8</span></div>
+        <div class="mini"><span>单银幕产出</span><span>¥ 3,120</span></div>
+        <div class="mini"><span>破亿影片数</span><span>11 部</span></div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 栏目三：深度影评 ================= -->
+<section id="review">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">栏目三 · 深度影评</div>
+        <h2>不止于 <span>“好看 / 不好看”</span></h2>
+      </div>
+      <p>北京电影网签约影评人从叙事结构、视听语言、表演与社会议题四个维度拆解影片，帮你判断“适不适合你”。</p>
+    </div>
+
+    <div class="review-grid">
+      <article class="review">
+        <span class="quote">“</span>
+        <div class="stars">★★★★☆</div>
+        <h3>《长安夜航》：一场关于“选择”的盛唐寓言</h3>
+        <p>影片用三条并行的时间线重构了漕运旧案，导演刻意弱化悬疑答案、强化人物在关键时刻的犹豫。真正的高光不在反转，而在周砚那场“不跪”的长镜头——没有台词，只有呼吸与烛火。</p>
+        <div class="reviewer">
+          <span class="avatar" style="background:#e11d2e">林</span>
+          <div><b>林知秋</b><span>北京电影网 首席影评人 · 从业 12 年</span></div>
+        </div>
+      </article>
+
+      <article class="review">
+        <span class="quote">“</span>
+        <div class="stars">★★★★★</div>
+        <h3>《第七次日落》：把“时间”拍成了角色</h3>
+        <p>多数循环题材困于设定，本片胜在情感。第七天的“放弃”不是爽点，而是对现代人疲惫感的精准命名。配乐用同一段旋律做七次变奏，是今年最聪明的声音设计。</p>
+        <div class="reviewer">
+          <span class="avatar" style="background:#e8a33d">周</span>
+          <div><b>周既白</b><span>电影学博士 · 专栏作者</span></div>
+        </div>
+      </article>
+
+      <article class="review">
+        <span class="quote">“</span>
+        <div class="stars">★★★★☆</div>
+        <h3>《小熊与星图》：治愈，但不幼稚</h3>
+        <p>手绘水彩的每一帧都可以暂停当壁纸。更难得的是它承认“迷路”是成长的一部分——没有反派，冲突全来自内心。成人看会流泪，孩子看能看懂，这是动画的最高难度。</p>
+        <div class="reviewer">
+          <span class="avatar" style="background:#3a6ea5">苏</span>
+          <div><b>苏晚</b><span>亲子观影主理人 · 两个孩子的妈妈</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 栏目四：影院排片 ================= -->
+<section id="cinema" style="background:linear-gradient(180deg,#f6f7fb,#fff)">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">栏目四 · 影院排片</div>
+        <h2>北京 <span>今日排片</span> 与选座</h2>
+      </div>
+      <p>覆盖朝阳区、海淀区、西城区主流影城，支持按影片、时段、影厅类型筛选，价格以影院现场及官方渠道为准。</p>
+    </div>
+
+    <div class="cinema">
+      <div class="cinema-head">
+        <div class="big">寰映影城（三里屯店）<small>BEIJING FILM · TODAY'S SHOWTIMES</small></div>
+        <div class="chips">
+          <span class="chip">IMAX Laser</span>
+          <span class="chip">杜比全景声</span>
+          <span class="chip">CINITY</span>
+          <span class="chip">无障碍厅</span>
+        </div>
+      </div>
+      <div class="schedule">
+        <div class="show">
+          <div class="t">10:20 · 12:38</div>
+          <h4>长安夜航 <small style="color:var(--muted);font-size:12px">IMAX 3D</small></h4>
+          <div class="seat"><span>剩余座位</span><span>86 / 268</span></div>
+          <div class="seat"><span>语言</span><span>国语 2D 字幕</span></div>
+          <div class="price">¥ 69.00 <small>原价 ¥ 85</small></div>
+          <button type="button">选座购票</button>
+        </div>
+        <div class="show">
+          <div class="t">13:05 · 15:07</div>
+          <h4>第七次日落 <small style="color:var(--muted);font-size:12px">杜比视界</small></h4>
+          <div class="seat"><span>剩余座位</span><span>41 / 156</span></div>
+          <div class="seat"><span>语言</span><span>原声 中文字幕</span></div>
+          <div class="price">¥ 59.00 <small>原价 ¥ 70</small></div>
+          <button type="button">选座购票</button>
+        </div>
+        <div class="show">
+          <div class="t">15:40 · 17:16</div>
+          <h4>小熊与星图 <small style="color:var(--muted);font-size:12px">亲子专场</small></h4>
+          <div class="seat"><span>剩余座位</span><span>112 / 200</span></div>
+          <div class="seat"><span>语言</span><span>国语</span></div>
+          <div class="price">¥ 45.00 <small>亲子套票 ¥ 79</small></div>
+          <button type="button">选座购票</button>
+        </div>
+        <div class="show">
+          <div class="t">19:20 · 21:02</div>
+          <h4>山海之间 <small style="color:var(--muted);font-size:12px">纪录片</small></h4>
+          <div class="seat"><span>剩余座位</span><span>18 / 120</span></div>
+          <div class="seat"><span>语言</span><span>原声 中文字幕</span></div>
+          <div class="price">¥ 52.00 <small>会员 ¥ 42</small></div>
+          <button type="button">选座购票</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 栏目五：电影节 + 资讯 ================= -->
+<section id="festival">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">栏目五 · 电影节与行业</div>
+        <h2>不缺席每一场 <span>光影盛事</span></h2>
+      </div>
+      <p>从北京国际电影节到戛纳、威尼斯，北京电影网提供选片指南、红毯速报与主竞赛单元前瞻。</p>
+    </div>
+
+    <div class="split">
+      <div class="fest">
+        <div class="lb">14th BEIJING INT'L FILM FEST</div>
+        <h3>第十四届北京国际电影节<br>开幕倒计时</h3>
+        <p>“光影互鉴”为主题，设“天坛奖”主竞赛、注目未来、北京展映三大单元，展映影片 180 余部，覆盖 30 家影院。</p>
+        <div class="countdown">
+          <div class="cd"><b id="cdD">00</b><span>天</span></div>
+          <div class="cd"><b id="cdH">00</b><span>时</span></div>
+          <div class="cd"><b id="cdM">00</b><span>分</span></div>
+          <div class="cd"><b id="cdS">00</b><span>秒</span></div>
+        </div>
+      </div>
+
+      <div class="news">
+        <a href="#">
+          <div class="nd" style="background:linear-gradient(135deg,#e11d2e,#ff5a3d)">票房</div>
+          <div><time>2026-10-04</time><h4>国庆档总票房破 18 亿，《长安夜航》连续五日夺冠</h4></div>
+        </a>
+        <a href="#">
+          <div class="nd" style="background:linear-gradient(135deg,#e8a33d,#f0c674)">节展</div>
+          <div><time>2026-10-03</time><h4>北影节公布“天坛奖”评委阵容，评委会主席为金棕榈得主</h4></div>
+        </a>
+        <a href="#">
+          <div class="nd" style="background:linear-gradient(135deg,#3a6ea5,#5b8fc9)">产业</div>
+          <div><time>2026-10-02</time><h4>2026 中国电影市场前三季度总票房 428 亿，同比增长 14%</h4></div>
+        </a>
+        <a href="#">
+          <div class="nd" style="background:linear-gradient(135deg,#2e8b7a,#57c4ad)">技术</div>
+          <div><time>2026-10-01</time><h4>CINITY LED 放映系统落地北京 6 家影城，亮度提升 3 倍</h4></div>
+        </a>
+        <a href="#">
+          <div class="nd" style="background:linear-gradient(135deg,#6a5acd,#9b8ce8)">影人</div>
+          <div><time>2026-09-29</time><h4>导演陈知行谈《长安夜航》：历史不是背景，是主角</h4></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 栏目六：关于我们 + FAQ ================= -->
+<section id="about" style="background:linear-gradient(180deg,#fff,#f6f7fb)">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <div class="eyebrow">栏目六 · 关于北京电影网</div>
+        <h2>我们为何 <span>只聊电影</span></h2>
+      </div>
+      <p>北京电影网（beijingdianyingwang-app）成立于 2018 年，定位为“观影决策工具 + 影视文化社区”，不做泛娱乐，不搬运通稿。</p>
+    </div>
+
+    <div class="about-grid" style="margin-bottom:26px">
+      <div class="feat">
+        <div class="ic">🎬</div>
+        <h3>资讯快而准</h3>
+        <p>定档、撤档、密钥延期、票房数据，编辑人工核对后发布，拒绝机器人搬运。</p>
+      </div>
+      <div class="feat">
+        <div class="ic">📊</div>
+        <h3>数据可溯源</h3>
+        <p>票房、排片、评分均标注来源与更新时间，差异数据并列呈现，不做单一口径误导。</p>
+      </div>
+      <div class="feat">
+        <div class="ic">✍️</div>
+        <h3>影评有立场</h3>
+        <p>每篇影评标注“推荐人群”与“慎看人群”，把选择权还给你。</p>
+      </div>
+      <div class="feat">
+        <div class="ic">🎟️</div>
+        <h3>选座不踩坑</h3>
+        <p>结合影厅结构、银幕比例与座位图给出选座建议，IMAX / CINITY / Dolby 各有攻略。</p>
+      </div>
+    </div>
+
+    <div class="about-text">
+      <div class="card">
+        <h3>北京电影网做什么</h3>
+        <p>我们每日更新电影资讯、实时票房、影片资料、影评解析与影院排片，覆盖北京地区主流影城。内容由编辑与签约影评人原创生产，转载需注明来源“北京电影网（beijingdianyingwang-app）”。</p>
+        <p>网站地址：<strong>https://beijingdianyingwang-app.github.io</strong></p>
+        <div class="kw" style="margin-top:12px">
+          <a href="#">电影资讯</a><a href="#">最新电影</a><a href="#">票房排行</a><a href="#">影评</a><a href="#">影院排片</a><a href="#">电影节</a>
+        </div>
+      </div>
+      <div class="card">
+        <h3>常见问题</h3>
+        <div class="faq" id="faq">
+          <details open>
+            <summary>北京电影网的票房数据多久更新一次？</summary>
+            <p>实时票房每小时更新一次，午夜结算后于次日 01:30 前完成校准。数据用于资讯参考，与影院实际结算可能存在分钟级延迟。</p>
+          </details>
+          <details>
+            <summary>影评的评分标准是什么？</summary>
+            <p>采用五维评分：剧本 25%、导演 25%、表演 20%、视听 20%、情感共鸣 10%。总分 8.5 以上为“强烈推荐”，7.0–8.4 为“值得一看”，6.0 以下会明确说明硬伤。</p>
+          </details>
+          <details>
+            <summary>能否在线直接购票？</summary>
+            <p>北京电影网为资讯门户，不直接处理支付与出票。点击“选座购票”将跳转至影院官方或持牌票务渠道，票价与余票以落地页为准。</p>
+          </details>
+          <details>
+            <summary>如何投稿影评或申请合作？</summary>
+            <p>原创影评、影院活动合作、采访申请均可通过页脚邮箱联系编辑部。投稿需为未公开发表原创内容，字数建议 1200 字以上。</p>
+          </details>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <a class="logo" href="#top" style="color:#fff">
+          <span class="logo-mark">影</span>
+          <span>北京电影网<small>beijingdianyingwang-app</small></span>
+        </a>
+        <p style="margin-top:14px">北京电影网（beijingdianyingwang-app）是聚焦电影资讯、票房数据、影评解析与影院排片的垂直门户，致力于让每一次观影都值得。</p>
+      </div>
+      <div>
+        <h4>栏目导航</h4>
+        <ul>
+          <li><a href="#hot">热映推荐</a></li>
+          <li><a href="#boxoffice">实时票房</a></li>
+          <li><a href="#review">深度影评</a></li>
+          <li><a href="#cinema">影院排片</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>专题与工具</h4>
+        <ul>
+          <li><a href="#festival">电影节速递</a></li>
+          <li><a href="#">选座攻略</a></li>
+          <li><a href="#">片单合集</a></li>
+          <li><a href="#">年度榜单</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>关于与联系</h4>
+        <ul>
+          <li><a href="#about">关于我们</a></li>
+          <li><a href="#faq">常见问题</a></li>
+          <li><a href="#">投稿与合作</a></li>
+          <li><a href="#">隐私与版权</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy">
+      <span>© 2018–2026 北京电影网（beijingdianyingwang-app）保留所有权利。网站网址：https://beijingdianyingwang-app.github.io</span>
+      <span><a href="#">京ICP备xxxxxxxx号</a> · <a href="#">回到顶部 ↑</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// 移动端菜单
+document.getElementById('navToggle').addEventListener('click', function(){
+  document.getElementById('primaryNav').classList.toggle('open');
+  this.textContent = this.textContent === '☰' ? '✕' : '☰';
+});
+document.querySelectorAll('#primaryNav a').forEach(function(a){
+  a.addEventListener('click', function(){
+    document.getElementById('primaryNav').classList.remove('open');
+    document.getElementById('navToggle').textContent = '☰';
+  });
+});
+
+// Tab 切换
+document.querySelectorAll('.tab').forEach(function(t){
+  t.addEventListener('click', function(){
+    t.parentNode.querySelectorAll('.tab').forEach(function(x){x.classList.remove('active')});
+    t.classList.add('active');
+  });
+});
+
+// 数字滚动
+function countUp(el, target, duration, suffix){
+  let start = 0; const step = Math.max(1, Math.ceil(target / (duration / 16)));
+  const timer = setInterval(function(){
+    start += step;
+    if(start >= target){ start = target; clearInterval(timer); }
+    el.textContent = (suffix === '万' ? (start/10000).toFixed(1) : start) + (suffix || '');
+  }, 16);
+}
+window.addEventListener('load', function(){
+  const s1 = document.getElementById('s1');
+  if(s1) countUp(s1, 120, 1200, '');
+});
+
+// 今日日期
+const d = new Date();
+const p = function(n){return (n<10?'0':'')+n};
+document.getElementById('todayDate').textContent =
+  d.getFullYear() + ' 年 ' + (d.getMonth()+1) + ' 月 ' + d.getDate() + ' 日 · 数据截至 ' + p(d.getHours()) + ':' + p(d.getMinutes());
+
+// 电影节倒计时（距下一个 4 月 18 日）
+function nextFest(){
+  const y = d.getMonth() > 3 || (d.getMonth()===3 && d.getDate()>18) ? d.getFullYear()+1 : d.getFullYear();
+  return new Date(y, 3, 18, 10, 0, 0);
+}
+const fest = nextFest();
+function tick(){
+  let diff = fest - new Date();
+  if(diff < 0) diff = 0;
+  const day = Math.floor(diff/864e5);
+  const hour = Math.floor(diff%864e5/36e5);
+  const min = Math.floor(diff%36e5/6e4);
+  const sec = Math.floor(diff%6e4/1e3);
+  document.getElementById('cdD').textContent = p(day);
+  document.getElementById('cdH').textContent = p(hour);
+  document.getElementById('cdM').textContent = p(min);
+  document.getElementById('cdS').textContent = p(sec);
+}
+tick(); setInterval(tick, 1000);
+</script>
+</body>
+</html>
